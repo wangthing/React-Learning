@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, in√åitial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #root { 
+            padding: 200px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    
+    
+    class ToDoLists extends React.Component {
+        constructor (props) {
+            super(props);
+            this.state = {times: 0}
+        }
+        render () {
+            const lists = this.props.lists;
+            const listItem = lists.map( 
+                (item, index) => (
+                    <li key = {item}>
+                        <button  onClick = {(e) => {this.clickHandler(e)}} key = {index}>{item}</button>
+                    </li>
+                )
+            );
+            
+            return (
+                <div>
+                    <h1>{"You have click " + this.state.times + " times"}</h1>
+                    <ul>{listItem}</ul>
+                </div>
+            )
+        }
+        clickHandler (e) {
+            console.log(e);
+            let times = this.state.times;
+            this.setState({
+                times: times+1
+            })
+        }
+    }
+
+    const toDoLists = ['吃饭', '睡觉', '学习', '跑步'];
+    ReactDOM.render(<ToDoLists lists = {toDoLists}/>, document.getElementById('root'))
+</script>
+</html>

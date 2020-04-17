@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, in√åitial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <script src="./001闹钟.js" type="module"></script> -->
+</head>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    
+    
+    function Clock (props) {
+        return (
+            <div>
+                <h1>Hello React!</h1>
+                <h3>It's {props.date.toLocaleTimeString()}.</h3>
+            </div>
+        )
+    }
+
+    function tick () {
+        
+        ReactDOM.render(
+            <Clock date = {new Date()} />,
+            document.getElementById('root')
+        )
+    }
+    console.log(ReactDOM, React);
+    setInterval(tick, 1000);
+</script>
+</html>
